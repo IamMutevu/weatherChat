@@ -19,8 +19,21 @@
         <div class="col-md-6 align-self-center">
           <div class="card">
             <div class="card-body">
-              <div class="bubble-right">Hello</div>
-              <div class="bubble-left">Hello back</div>
+              <div class="card cardBox">
+                <div class="card-body">
+                  <div class="bubble-right">Hello</div>
+                  <div class="bubble-left">Hello back</div>                  
+                </div>
+              </div>
+              <form class="form">
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Type your message here:</label>
+                  <input type="text" name="" class="form-control">
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-block btn-info">Send</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>

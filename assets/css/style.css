@@ -2,11 +2,14 @@
 	min-height: 100vh !important;
 }
 
-.card{
-	height: 500px;
+.cardBox{
+	height: 400px;
 	overflow: scroll;
 }
 
+.form{
+	margin-top: 20px;
+}
 
 /**Log bubbles**/
 .bubble-right{
