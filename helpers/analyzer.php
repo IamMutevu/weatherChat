@@ -71,7 +71,7 @@ function analyze($request){
 		file_put_contents("../py/request.txt", $content);
 
 		//execute python script
-		$command = escapeshellcmd('python test.py');
+		$command = escapeshellcmd('python ../py/script.py');
 		$output = shell_exec($command);
 
 		//read file for response
