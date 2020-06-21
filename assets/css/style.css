@@ -6,3 +6,51 @@
 	height: 500px;
 	overflow: scroll;
 }
+
+
+/**Log bubbles**/
+.bubble-right{
+    background: rgba(52, 185, 96, 0.9);
+    color: white;
+    padding: 7px;
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 1rem;
+    border-radius: 10px;
+}
+
+.bubble-right:after{
+    content: "";
+    border-right: none;
+    border-left: 10px solid rgba(52, 185, 96, 0.9);
+    border-bottom: 12px transparent;
+    border-top: 15px  solid transparent;
+    position: absolute;
+    right: -8px;
+    margin-top: -3px;
+    position: absolute;
+}
+
+.bubble-left{
+    background: #444;
+    color: white;
+    padding: 7px;
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 1rem;
+    border-radius: 10px;
+}
+
+.bubble-left:after{
+    content: "";
+    border-left: none;
+    border-right: 10px solid #444;
+    border-bottom: 12px transparent;
+    border-top: 15px  solid transparent;
+    position: absolute;
+    margin-top: -3px;
+    left: -8px;
+    position: absolute;
+}
