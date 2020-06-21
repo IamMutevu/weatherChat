@@ -11,6 +11,7 @@ class WeatherController
 
 		$contents = file_get_contents($url);
 
+
 		$object = json_decode($contents, true);
 
 		return $contents;

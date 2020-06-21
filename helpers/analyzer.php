@@ -7,12 +7,12 @@ $message = $_POST['message'];
 analyze($message);
 
 
-function analyze($message){
+function analyze($request){
 	//keywords array
 	$keywords = array("city", "zip", "coordinates");
 
 	//convert to lower case
-	$message = strtolower($message);
+	$message = strtolower($request);
 
 	$found = 0;
 	//check if keywords exist in message
@@ -66,6 +66,19 @@ function analyze($message){
 		
 	}
 	else{
-		echo "Normal convo";
+		$content = json_encode(array("request" => $request));
+
+		file_put_contents("../py/request.txt", $content);
+
+		//execute python script
+		$command = escapeshellcmd('python test.py');
+		$output = shell_exec($command);
+
+		//read file for response
+		$content = file_get_contents('../py/response.txt');
+
+		$data = json_decode($content, true);
+
+		echo $content;
 	}	
 }

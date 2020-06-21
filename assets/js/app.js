@@ -31,7 +31,14 @@ $(document).ready(function(){
 			//
 			$("#chatBox").append(
 			`
-			<div class="bubble-right">Here is your help message</div>
+			<div class="bubble-right">
+				You can get the weather updates of any place using the name of the city, the coordinates, or the zip code.<br>
+				Examples:<br>
+				city=Nairobi<br>
+				zip=94040,us<br>
+				coordinates=37.39,-122.09
+
+			</div>
 			`
 			);			
 		}
@@ -44,22 +51,34 @@ $(document).ready(function(){
 			function(data, status){
 				if(data != "invalid"){
 					var json = JSON.parse(data);
-					$("#chatBox").append(
-					`
-					<div class="bubble-right">
-						<p>Name: ${json.name}</p>
-						<p>Longitude: ${json.coord.lon}</p>
-						<p>Latitude: ${json.coord.lat}</p>
-						<p>Weather: ${json.weather[0].main}</p>
-						<p>Temperature: ${json.main.temp}</p>
-						<p>Humidity: ${json.main.humidity}</p>
-						<p>Pressure: ${json.main.pressure}</p>
-						<p>Wind speed: ${json.wind.speed}</p>
+					if(json.name){
+						$("#chatBox").append(
+						`
+						<div class="bubble-right">
+							<p>Name: ${json.name}</p>
+							<p>Longitude: ${json.coord.lon}</p>
+							<p>Latitude: ${json.coord.lat}</p>
+							<p>Weather: ${json.weather[0].main}</p>
+							<p>Temperature: ${json.main.temp}</p>
+							<p>Humidity: ${json.main.humidity}</p>
+							<p>Pressure: ${json.main.pressure}</p>
+							<p>Wind speed: ${json.wind.speed}</p>
 
 
-					</div>
-					`
-					);	
+						</div>
+						`
+						);						
+					}
+					else{
+						$("#chatBox").append(
+						`
+						<div class="bubble-right">
+						${json.response}
+						</div>
+						`
+						);
+					}
+	
 				}
 				else{
 					$("#chatBox").append(
